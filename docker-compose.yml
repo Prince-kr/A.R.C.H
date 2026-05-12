@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  attacker:
+    build:
+      context: .
+      dockerfile: Dockerfile.attacker
+    container_name: arch_attacker
+    hostname: attacker
+    tty: true
+    networks:
+      - arch_net
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./scripts:/scripts
+    command: tail -f /dev/null
+
+  victim:
+    build:
+      context: .
+      dockerfile: Dockerfile.victim
+    container_name: arch_victim
+    hostname: victim
+    networks:
+      - arch_net
+
+networks:
+  arch_net:
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24

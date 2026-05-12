@@ -1,0 +1,45 @@
+{
+    "nmap_scan": {
+        "description": "Network service detection and port scanning",
+        "required_args": ["--target"],
+        "optional_args": ["--payload"]
+    },
+    "hydra_brute": {
+        "description": "Parallelized login cracker",
+        "required_args": ["--target"],
+        "optional_args": ["--payload"]
+    },
+    "dos_attack": {
+        "description": "Simulated Denial of Service attack",
+        "required_args": ["--target"]
+    },
+    "msf_exploit": {
+        "description": "Metasploit Framework automated exploit execution",
+        "required_args": ["--target"],
+        "optional_args": ["--payload"]
+    },
+    "nikto_scan": {
+        "description": "Web server vulnerability scanner",
+        "required_args": ["--target"]
+    },
+    "dirb_scan": {
+        "description": "Web content and directory brute-forcer",
+        "required_args": ["--target"]
+    },
+    "sqlmap_audit": {
+        "description": "Automatic SQL injection and database takeover",
+        "required_args": ["--target"]
+    },
+    "gobuster_dns": {
+        "description": "Subdomain discovery tool",
+        "required_args": ["--target"]
+    },
+    "slowloris_dos": {
+        "description": "Layer 7 HTTP Denial of Service attack",
+        "required_args": ["--target"]
+    },
+    "smb_enumerate": {
+        "description": "SAMBA and SMB share enumeration",
+        "required_args": ["--target"]
+    }
+}

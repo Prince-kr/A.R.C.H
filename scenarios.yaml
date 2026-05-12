@@ -1,0 +1,68 @@
+# A.R.C.H. Scenario Definitions
+
+scenarios:
+  - name: "full_recon"
+    attack: "nmap_scan"
+    payload: "-sV -O"
+    defend: "suricata_check"
+    description: "Perform full service detection and verify NIDS detection."
+
+  - name: "stealth_service_audit"
+    attack: "nmap_scan"
+    payload: "-sS -T2 -p 22,80,443"
+    defend: "suricata_check"
+    description: "Low-and-slow stealth scan targeting common services."
+
+  - name: "credential_audit"
+    attack: "hydra_brute"
+    payload: "ssh"
+    defend: "log_monitor"
+    description: "Brute force SSH and verify host log capturing."
+
+  - name: "active_block"
+    attack: "dos_attack"
+    payload: "syn_flood"
+    defend: "ip_blocker"
+    description: "Execute DoS and trigger active IP mitigation."
+
+  - name: "web_vuln_scan"
+    attack: "nikto_scan"
+    payload: "-h http://target -ssl"
+    defend: "suricata_check"
+    description: "Comprehensive web vulnerability assessment over SSL."
+
+  - name: "sql_injection_audit"
+    attack: "sqlmap_audit"
+    payload: "--batch --dump --level 3"
+    defend: "wazuh_alerts"
+    description: "Automated SQL injection simulation with depth-3 auditing."
+
+  - name: "directory_bruteforce"
+    attack: "dirb_scan"
+    payload: "-r -z 100"
+    defend: "log_monitor"
+    description: "Identify hidden web directories with custom timing."
+
+  - name: "dns_exfiltration_test"
+    attack: "gobuster_dns"
+    payload: "-d target.com -i"
+    defend: "suricata_check"
+    description: "Subdomain enumeration with IP discovery."
+
+  - name: "layer7_dos_defense"
+    attack: "slowloris_dos"
+    payload: "-s 500 -v"
+    defend: "fail2ban_status"
+    description: "Simulate HTTP exhaustion and verify brute-force protection."
+
+  - name: "container_hardening_test"
+    attack: "msf_exploit"
+    payload: "linux/local/docker_daemon_privilege_escalation"
+    defend: "docker_security"
+    description: "Simulate container escape and verify hardening configurations."
+
+  - name: "autonomous_exploitation_path"
+    attack: "nmap_scan"
+    payload: "-sV --open"
+    defend: "wazuh_alerts"
+    description: "Auto-map Nmap service discovery directly into recommended Metasploit payload."

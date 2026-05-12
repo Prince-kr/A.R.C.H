@@ -1,0 +1,21 @@
+# A.R.C.H. Framework Configuration
+
+testbed:
+  network_subnet: "192.168.100.0/24"
+  default_victim_ip: "192.168.100.2"
+  default_attacker_ip: "192.168.100.1"
+
+execution:
+  timeout_seconds: 0
+  log_level: "INFO"
+  db_url: "sqlite:///data/purple_team.db"
+
+export:
+  default_format: "json"
+  destination_dir: "data/exports"
+
+# Wazuh Integration (Optional)
+# wazuh:
+#   api_url: "https://192.168.100.10:55000"
+#   user: "admin"
+#   password: "SecretPassword"

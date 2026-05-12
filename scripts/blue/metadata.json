@@ -1,0 +1,42 @@
+{
+    "suricata_check": {
+        "description": "NIDS log parser for network alerts",
+        "required_args": ["--session"]
+    },
+    "log_monitor": {
+        "description": "General system log analysis",
+        "required_args": ["--session"]
+    },
+    "ip_blocker": {
+        "description": "Active mitigation via IP blocking",
+        "required_args": ["--session"]
+    },
+    "wazuh_alerts": {
+        "description": "Endpoint security event monitor via Wazuh API",
+        "required_args": ["--session"]
+    },
+    "osquery_check": {
+        "description": "Operating system instrumentation and analytics",
+        "required_args": ["--session"]
+    },
+    "clamav_scan": {
+        "description": "Antivirus and malware signature scanner",
+        "required_args": ["--session"]
+    },
+    "rkhunter_check": {
+        "description": "Rootkit and local exploit detection",
+        "required_args": ["--session"]
+    },
+    "fail2ban_status": {
+        "description": "Brute-force protection and jail status",
+        "required_args": ["--session"]
+    },
+    "iptables_audit": {
+        "description": "Firewall configuration and rule validation",
+        "required_args": ["--session"]
+    },
+    "docker_security": {
+        "description": "Container escape and configuration hardening check",
+        "required_args": ["--session"]
+    }
+}

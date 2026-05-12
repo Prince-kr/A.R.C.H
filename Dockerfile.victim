@@ -1,0 +1,8 @@
+FROM alpine
+RUN apk add --no-cache apache2 openssh && \
+    echo 'root:password' | chpasswd
+    
+# Generate SSH host keys
+RUN ssh-keygen -A
+
+CMD ["sh", "-c", "/usr/sbin/sshd && httpd -D FOREGROUND"]
